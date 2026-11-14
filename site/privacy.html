@@ -39,7 +39,7 @@
     <div class="eyebrow">Your information, explained</div>
     <h1>Privacy notice</h1>
     <p class="intro">This notice explains what information RedeemHub handles when you browse the store, sign in, place an order, submit a UPI reference or partner-task completion, or contact support.</p>
-    <p class="updated">Last updated: 11 November 2026</p>
+    <p class="updated">Last updated: 14 November 2026</p>
 
     <main>
       <section>
@@ -52,7 +52,7 @@
           <li><strong>Google sign-in:</strong> When you choose Google, Google provides basic account details such as your name, email address and profile information (which may include a profile image). RedeemHub uses these details to create and secure your account. We do not ask for access to your Gmail, Drive or other Google services.</li>
           <li><strong>Account and store activity:</strong> Your profile name, account identifier, referral code and referral activity, saved items, product reviews, notifications, and order details such as items, amounts and delivery status.</li>
           <li><strong>Partner-task claims:</strong> If you choose to submit a task for Spark review, we store your completion note and its review status so an administrator can verify the task with the partner and, if approved, credit the listed Sparks. Do not include passwords, one-time codes, payment PINs or other secrets.</li>
-          <li><strong>Manual UPI checkout:</strong> If you choose to select a payment screenshot, an OCR model reads it locally in your browser. The screenshot is not uploaded to RedeemHub or saved by the app. The OCR engine and its language data are loaded from jsDelivr; only the extracted UPI transaction reference (UTR) is submitted and stored with the order so an administrator can compare it with the incoming payment. Your bank or UPI app handles the transfer. RedeemHub does not request your UPI PIN, bank password, card number or card security code.</li>
+          <li><strong>Manual UPI checkout:</strong> If you choose to select a payment screenshot, an authenticated RedeemHub server function processes it transiently with Tesseract.js OCR to read the UPI transaction reference (UTR) and payment amount. The screenshot is not stored, logged, or sent to an AI provider. The function fetches a pinned English OCR model separately from jsDelivr; that service does not receive the screenshot. If you review and submit the result, only the extracted UTR and amount are stored with the order so an administrator can compare them with the incoming payment. OCR does not verify that funds arrived; admin verification and code release remain manual. Your bank or UPI app handles the transfer. RedeemHub does not request your UPI PIN, bank password, card number or card security code.</li>
           <li><strong>Support:</strong> Information you include in a support request, such as its subject, message and related order. Please do not include passwords, verification codes, UPI PINs or card security codes.</li>
           <li><strong>Basic technical data:</strong> Your browser stores authentication session information needed to keep you signed in. Hosting and security services may process standard request and diagnostic information when they deliver the site.</li>
         </ul>
@@ -63,11 +63,11 @@
       </section>
       <section>
         <h2>Services that help run the store</h2>
-        <p>Google provides the sign-in service. Supabase provides authentication, database, storage and application-backend services. GitHub Pages delivers the public website. jsDelivr supplies the OCR engine and language data to your browser; it does not receive the screenshot through this OCR flow. These services process information as needed to provide their part of the service under their own terms and privacy notices. Your bank or UPI app processes your transfer under its own terms. RedeemHub does not sell your personal information.</p>
+        <p>Google provides the sign-in service. Supabase provides authentication, database, storage and application-backend services. The server downloads a pinned English OCR model from jsDelivr when needed; payment screenshots are processed by the RedeemHub server and are not sent to that model host or an AI provider. GitHub Pages delivers the public website. These services process information as needed to provide their part of the service under their own terms and privacy notices. Your bank or UPI app processes your transfer under its own terms. RedeemHub does not sell your personal information.</p>
       </section>
       <section>
         <h2>Access, security and retention</h2>
-        <p>Account access controls and database policies are used to limit access to customer records. Redeem codes are encrypted by the server before they are stored. No website or storage method can be guaranteed completely secure.</p>
+        <p>Account access controls and database policies are used to limit access to customer records. Redeem codes are stored as plaintext in the database and are disclosed to their owner only after delivery; no application-level at-rest encryption is applied. No website or storage method can be guaranteed completely secure.</p>
         <p>We keep account, order and support information while it is needed to operate the store, handle transactions or disputes, prevent misuse, and meet applicable record-keeping requirements. Some transaction records may need to be retained after an account is closed. We remove or de-identify information when it is no longer needed and retention is not required.</p>
       </section>
       <section>
